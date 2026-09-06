@@ -1,20 +1,28 @@
-// Оголоси функцію makeArray, яка очікує три параметри:
-//
-// firstArray — масив
-// secondArray — масив
-// maxLength — максимальна довжина результату
-//
-//
-// Функція створює новий масив, який містить спочатку всі елементи з firstArray, а потім усі елементи з secondArray.
-//
-// Якщо кількість елементів у новому масиві перевищує maxLength, функція повертає копію масиву довжиною maxLength елементів.
-// В іншому випадку функція повертає весь новий масив.
-
-
 function makeArray(firstArray, secondArray, maxLength) {
-
-
+    const newArr = [];
+    for (let i = 0; i < maxLength; i++) {
+        if (firstArray.length < maxLength && firstArray.length === i) {
+            for (let j = 0; j < maxLength - i; j++) {
+                if (j < secondArray.length) {
+                    newArr.push(secondArray[j]);
+                }
+            }
+            break;
+        } else {
+            newArr.push(firstArray[i]);
+        }
+    }
+    return newArr;
 }
+
+// function makeArray(firstArray, secondArray, maxLength) {
+//     const resultArr = [];
+//     const combinedArr = firstArray.concat(secondArray);
+//     for (let i = 0; i < maxLength; i++) {
+//         resultArr.push(combinedArr[i])
+//     }
+//     return resultArr;
+// }
 
 console.log("=========================Task2=========================");
 console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)); // ["Mango", "Poly", "Ajax"]
