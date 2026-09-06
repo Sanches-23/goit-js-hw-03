@@ -1,28 +1,28 @@
-function makeArray(firstArray, secondArray, maxLength) {
-    const newArr = [];
-    for (let i = 0; i < maxLength; i++) {
-        if (firstArray.length < maxLength && firstArray.length === i) {
-            for (let j = 0; j < maxLength - i; j++) {
-                if (j < secondArray.length) {
-                    newArr.push(secondArray[j]);
-                }
-            }
-            break;
-        } else {
-            newArr.push(firstArray[i]);
-        }
-    }
-    return newArr;
-}
-
 // function makeArray(firstArray, secondArray, maxLength) {
-//     const resultArr = [];
-//     const combinedArr = firstArray.concat(secondArray);
+//     const newArr = [];
 //     for (let i = 0; i < maxLength; i++) {
-//         resultArr.push(combinedArr[i])
+//         if (firstArray.length < maxLength && firstArray.length === i) {
+//             for (let j = 0; j < maxLength - i; j++) {
+//                 if (j < secondArray.length) {
+//                     newArr.push(secondArray[j]);
+//                 }
+//             }
+//             break;
+//         } else {
+//             newArr.push(firstArray[i]);
+//         }
 //     }
-//     return resultArr;
+//     return newArr;
 // }
+
+function makeArray(firstArray, secondArray, maxLength) {
+    const resultArr = [];
+    const combinedArr = firstArray.concat(secondArray);
+    for (let i = 0; i < maxLength && i < combinedArr.length; i++) {
+        resultArr.push(combinedArr[i])
+    }
+    return resultArr;
+}
 
 console.log("=========================Task2=========================");
 console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)); // ["Mango", "Poly", "Ajax"]
